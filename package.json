@@ -1,0 +1,19 @@
+{
+  "name": "hit-the-box",
+  "version": "1.0.0",
+  "description": "simple game",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armando284/test-simple-game.git"
+  },
+  "author": "Armando Peña Tamayo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Armando284/test-simple-game/issues"
+  },
+  "homepage": "https://github.com/Armando284/test-simple-game#readme"
+}

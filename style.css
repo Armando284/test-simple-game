@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #333;
+    overflow: hidden;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    /* background: #fefefe; */
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    width: calc(100vw - 100px);
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.information {
+    /* background: red; */
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+#game {
+    /* width: 400px;
+    height: 400px; */
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 0;
+    border: 3px solid #111;
+
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    /* color: #eee; */
+    color: transparent;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.light-cell {
+    background: #fff;
+}
+
+.dark-cell {
+    background: #eee;
+}
+
+.cell:hover{
+    /* color: #aaa; */
+    background: rgb(191, 245, 255);
+    cursor: pointer;
+}
+
+.enemy {
+    background: yellow;
+}
+.enemy:hover{
+    background: red;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px 10px rgba(255, 145, 0, 0.9);
+}
+
+.btn{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 5px 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1); */
+    transition: all 0.3s ease-in-out;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-main {
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.btn:hover {
+    color: #000 !important;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); */
+    transform: scale(1.2);
+}
