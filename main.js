@@ -7,9 +7,9 @@ const level = document.getElementById('level'),
     btnPlay = document.getElementById('play'),
     btnClear = document.getElementById('clear')
 
-btnStop.addEventListener('click', () => stop())
-btnPlay.addEventListener('click', () => play())
-btnClear.addEventListener('click', () => clear())
+btnStop.addEventListener('pointerdown', () => stop())
+btnPlay.addEventListener('pointerdown', () => play())
+btnClear.addEventListener('pointerdown', () => clear())
 
 let scoreCount = 0,
     levelCount = 0,
@@ -52,7 +52,7 @@ const makeGrid = () => {
         cell.classList.add('cell', i % 2 == 0 ? 'dark-cell' : 'light-cell')
         cell.innerText = `${i}`
         cell.setAttribute('id', `${i}`)
-        cell.addEventListener('click', () => {
+        cell.addEventListener('pointerdown', () => {
             if (timerCount > 0 && cell.classList.contains('enemy')) {
                 scoreCount++
             }
