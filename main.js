@@ -5,7 +5,8 @@ const level = document.getElementById('level'),
     game = document.getElementById('game'),
     btnStop = document.getElementById('stop'),
     btnPlay = document.getElementById('play'),
-    btnClear = document.getElementById('clear')
+    btnClear = document.getElementById('clear'),
+    container = document.querySelector('.container')
 
 btnStop.addEventListener('pointerdown', () => stop())
 btnPlay.addEventListener('pointerdown', () => play())
@@ -16,6 +17,7 @@ let scoreCount = 0,
     timerCount = 0,
     enemyPos = 0,
     cells = [],
+    blocks = [],
     bestScoreCount = window.localStorage.BEST_SCORE ? parseInt(window.localStorage.BEST_SCORE) : 0
 
 const showInfo = () => {
@@ -67,6 +69,7 @@ makeGrid()
 
 const stop = () => {
     console.log('stop');
+    game.style.zIndex = '0'
     if (timerCount) {
         timerCount = 0
     }
@@ -83,5 +86,51 @@ const clear = () => {
 const play = () => {
     console.log('play');
     timerCount = 60
+    game.style.zIndex = '1'
     update()
 }
+
+const effects = () => {
+    setInterval(() => {
+        if (blocks.length > 10) return
+        const block = document.createElement('div')
+        const size = randomSize()
+        const position = randomPosition()
+        block.classList.add('lighter-glass-box')
+        block.style.width = `${size}px`
+        block.style.height = `${size}px`
+        block.style.zIndex = '0'
+        block.style.position = 'absolute'
+        block.style.top = position.y
+        block.style.left = position.x
+        container.appendChild(block)
+        block.classList.add('rotating-box')
+        animation(block)
+        blocks.push(block)
+        console.log(blocks.length);
+    }, 300);
+}
+
+
+const randomPosition = () => {
+    return {
+        x: `${Math.round(Math.random() * container.offsetWidth)}px`,
+        y: `${Math.round(Math.random() * container.offsetHeight)}px`
+    }
+}
+
+const randomSize = () => {
+    let size = Math.random() * 400
+    return size > 50 ? size : 50
+}
+
+const animation = (div) => {
+    const move = setInterval(() => {
+        clearInterval(move)
+        container.removeChild(div)
+        blocks = blocks.filter((block) => block != div)
+        return
+    }, 30000);
+}
+
+effects()
